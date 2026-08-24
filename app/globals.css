@@ -1,15 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #08080a;
-  --bg-soft: #0f0f13;
-  --card: #111116;
-  --card-border: rgba(212, 175, 55, 0.22);
-  --ink: #f3efe6;
-  --ink-muted: #9a9aa3;
-  --gold-1: #f4e5b2;
-  --gold-2: #d4af37;
-  --gold-3: #a97c1f;
+  --bg: #0a2b1f;
+  --ink: #f7f5ef;
+  --ink-muted: #a9c2b4;
+  --gold-1: #f0d78c;
+  --gold-2: #d3ab41;
+  --gold-3: #9c7a1f;
 }
 
 @theme inline {
@@ -43,11 +40,3 @@ body {
   color: transparent;
 }
 
-.bg-radial-glow {
-  background: radial-gradient(
-      60% 50% at 50% 0%,
-      rgba(212, 175, 55, 0.16) 0%,
-      rgba(212, 175, 55, 0) 70%
-    ),
-    var(--bg);
-}
