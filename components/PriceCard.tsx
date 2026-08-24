@@ -12,7 +12,7 @@ interface PriceCardProps {
 export default function PriceCard({ purity, label, price }: PriceCardProps) {
   return (
     <div className="flex-1 text-center">
-      <div className="font-display text-5xl sm:text-6xl font-extrabold gold-text">
+      <div className="font-display text-5xl sm:text-6xl font-black tracking-tight gold-text">
         {purity}
       </div>
       <div
@@ -25,10 +25,10 @@ export default function PriceCard({ purity, label, price }: PriceCardProps) {
       <div className="mt-5 sm:mt-6">
         {price !== null ? (
           <div className="flex items-start justify-center gap-1.5">
-            <span className="mt-2 sm:mt-3 text-xl sm:text-2xl font-extrabold text-[color:var(--ink)]">
+            <span className="mt-2 sm:mt-3 text-xl sm:text-2xl font-black text-[color:var(--ink)]">
               RM
             </span>
-            <span className="text-6xl sm:text-7xl font-extrabold tabular-nums tracking-tight text-[color:var(--ink)]">
+            <span className="text-6xl sm:text-7xl font-black tabular-nums tracking-tight text-[color:var(--ink)]">
               {priceFormatter.format(price)}
             </span>
           </div>
