@@ -21,28 +21,28 @@ export default async function Home() {
   const today = new Date();
 
   return (
-    <div className="flex-1 flex flex-col bg-radial-glow">
+    <div className="flex-1 flex flex-col" style={{ background: "var(--bg)" }}>
       <main className="flex-1 flex flex-col items-center px-6 py-16 sm:py-20">
-        <header className="flex flex-col items-center text-center gap-3 mb-12 sm:mb-16">
+        <header className="flex flex-col items-center text-center gap-2 mb-16 sm:mb-20">
           <span
-            className="text-[11px] sm:text-xs uppercase tracking-[0.35em]"
-            style={{ color: "var(--ink-muted)" }}
+            className="text-xs sm:text-sm font-bold uppercase tracking-[0.35em]"
+            style={{ color: "var(--gold-2)" }}
           >
             Malaysia Gold Price
           </span>
-          <h1 className="font-display text-xl sm:text-2xl font-medium text-[color:var(--ink)]">
+          <h1 className="font-display text-2xl sm:text-3xl font-extrabold uppercase tracking-wide gold-text">
             {dateFormatter.format(today)}
           </h1>
         </header>
 
-        <div className="w-full max-w-4xl flex flex-col md:flex-row gap-5 sm:gap-6">
+        <div className="w-full max-w-4xl flex flex-col md:flex-row items-center gap-16 sm:gap-20 md:gap-12">
           <PriceCard purity="999" label="24K Fine Gold" price={data.price999} />
           <PriceCard purity="916" label="22K Gold" price={data.price916} />
         </div>
 
-        <footer className="mt-14 sm:mt-16 flex flex-col items-center gap-1.5 text-center">
+        <footer className="mt-16 sm:mt-20 flex flex-col items-center gap-1.5 text-center">
           <p
-            className="text-[11px] sm:text-xs"
+            className="text-[11px] sm:text-xs font-medium"
             style={{ color: "var(--ink-muted)" }}
           >
             Updated {timeFormatter.format(new Date(data.updatedAt))} (MYT) &middot;

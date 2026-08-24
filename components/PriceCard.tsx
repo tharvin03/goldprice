@@ -11,39 +11,30 @@ interface PriceCardProps {
 
 export default function PriceCard({ purity, label, price }: PriceCardProps) {
   return (
-    <div
-      className="relative flex-1 rounded-3xl border px-8 py-10 sm:px-10 sm:py-12 text-center shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)] backdrop-blur"
-      style={{
-        borderColor: "var(--card-border)",
-        background:
-          "linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 100%), var(--card)",
-      }}
-    >
-      <div className="flex items-baseline justify-center gap-2">
-        <span className="font-display text-2xl sm:text-3xl font-semibold gold-text">
-          {purity}
-        </span>
-        <span
-          className="text-[11px] sm:text-xs uppercase tracking-[0.2em]"
-          style={{ color: "var(--ink-muted)" }}
-        >
-          {label}
-        </span>
+    <div className="flex-1 text-center">
+      <div className="font-display text-5xl sm:text-6xl font-extrabold gold-text">
+        {purity}
+      </div>
+      <div
+        className="mt-1 text-sm sm:text-base font-bold uppercase tracking-[0.15em]"
+        style={{ color: "var(--gold-2)" }}
+      >
+        {label}
       </div>
 
-      <div className="mt-6 sm:mt-8">
+      <div className="mt-5 sm:mt-6">
         {price !== null ? (
-          <>
-            <span className="font-display text-lg sm:text-xl align-top mr-1 text-[color:var(--ink-muted)]">
+          <div className="flex items-start justify-center gap-1.5">
+            <span className="mt-2 sm:mt-3 text-xl sm:text-2xl font-extrabold text-[color:var(--ink)]">
               RM
             </span>
-            <span className="font-display text-5xl sm:text-6xl font-medium tabular-nums text-[color:var(--ink)]">
+            <span className="text-6xl sm:text-7xl font-extrabold tabular-nums tracking-tight text-[color:var(--ink)]">
               {priceFormatter.format(price)}
             </span>
-          </>
+          </div>
         ) : (
           <span
-            className="font-display text-2xl sm:text-3xl"
+            className="font-display text-2xl sm:text-3xl font-bold"
             style={{ color: "var(--ink-muted)" }}
           >
             Unavailable
@@ -52,7 +43,7 @@ export default function PriceCard({ purity, label, price }: PriceCardProps) {
       </div>
 
       <div
-        className="mt-3 text-[11px] sm:text-xs uppercase tracking-[0.2em]"
+        className="mt-4 text-sm sm:text-base font-bold uppercase tracking-[0.2em]"
         style={{ color: "var(--ink-muted)" }}
       >
         per gram
