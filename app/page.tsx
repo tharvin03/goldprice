@@ -48,8 +48,7 @@ export default async function Home() {
             className="text-[11px] sm:text-xs font-medium"
             style={{ color: "var(--ink-muted)" }}
           >
-            Updated {timeFormatter.format(new Date(data.updatedAt))} (MYT) &middot;
-            reference price only, not an official quotation
+            Updated {timeFormatter.format(new Date(data.updatedAt))} (MYT)
           </p>
         </footer>
       </main>
