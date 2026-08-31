@@ -8,6 +8,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-MY", {
   day: "numeric",
   month: "long",
   year: "numeric",
+  timeZone: "Asia/Kuala_Lumpur",
 });
 
 const timeFormatter = new Intl.DateTimeFormat("en-MY", {
