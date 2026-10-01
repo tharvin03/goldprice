@@ -9,16 +9,14 @@ A simple, premium single-page site showing today's Malaysia gold price for
 ## How the price is sourced
 
 Malaysia has no official free API for retail 916/999 gold prices — local
-dealers each publish their own daily rate. This app:
-
-1. Scrapes 3 public Malaysian gold price pages server-side and cross-checks
-   them by taking the median (see `lib/sources/scrape.ts`,
-   `lib/sources/extract.ts`).
-2. If all scrapes fail, falls back to a purity-adjusted spot price from
-   [GoldAPI.io](https://www.goldapi.io/) (requires a free API key set as the
-   `GOLDAPI_KEY` environment variable — optional, only used as a last
-   resort).
-3. If both fail, the UI shows "Unavailable" rather than a fabricated number.
+dealers each publish their own daily rate. This app scrapes 4 public
+Malaysian gold price pages server-side and cross-checks them by taking the
+median (see `lib/sources/scrape.ts`, `lib/sources/extract.ts`). If a source
+has no match, it's dropped from the median; if every source fails, the UI
+shows "Unavailable" rather than a fabricated number. A global spot-price API
+fallback was tried and dropped — it gave a purity-adjusted spot conversion,
+not an actual Malaysian retail price, so it didn't track local prices well
+enough to trust.
 
 Prices are cached/revalidated hourly (`revalidate = 3600`).
 
@@ -36,9 +34,3 @@ npm run dev
 ```
 
 Visit http://localhost:3000. The gold price API is at `/api/gold-price`.
-
-## Environment variables
-
-| Variable      | Required | Purpose                                   |
-| ------------- | -------- | ------------------------------------------ |
-| `GOLDAPI_KEY` | No       | Fallback spot-price API key (goldapi.io). |
