@@ -31,6 +31,13 @@ export async function getGoldPrice(): Promise<GoldPriceData> {
     price916,
     method,
     updatedAt: new Date().toISOString(),
-    sources: scraped.map((s) => ({ name: s.name, url: s.url, ok: s.ok })),
+    sources: scraped.map((s) => ({
+      name: s.name,
+      url: s.url,
+      ok: s.ok,
+      price999: s.price999,
+      price916: s.price916,
+      error: s.error,
+    })),
   };
 }

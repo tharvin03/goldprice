@@ -16,5 +16,12 @@ export interface GoldPriceData {
   price916: number | null;
   method: PriceMethod;
   updatedAt: string;
-  sources: { name: string; url: string; ok: boolean }[];
+  sources: {
+    name: string;
+    url: string;
+    ok: boolean;
+    price999: number | null;
+    price916: number | null;
+    error?: string;
+  }[];
 }
