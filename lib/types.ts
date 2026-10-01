@@ -9,7 +9,7 @@ export interface SourceFetchResult {
   error?: string;
 }
 
-export type PriceMethod = "scrape" | "fallback-api" | "unavailable";
+export type PriceMethod = "scrape" | "unavailable";
 
 export interface GoldPriceData {
   price999: number | null;

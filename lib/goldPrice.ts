@@ -1,6 +1,5 @@
 import type { GoldPriceData, SourceFetchResult } from "@/lib/types";
 import { scrapeAllSources } from "@/lib/sources/scrape";
-import { fetchFallbackPrice } from "@/lib/sources/fallbackGoldApi";
 
 function median(values: number[]): number | null {
   if (values.length === 0) return null;
@@ -23,28 +22,15 @@ function summarize(results: SourceFetchResult[]) {
 
 export async function getGoldPrice(): Promise<GoldPriceData> {
   const scraped = await scrapeAllSources();
-  let { price999, price916 } = summarize(scraped);
-  let method: GoldPriceData["method"] = "scrape";
-  let sourcesUsed: SourceFetchResult[] = scraped;
-
-  if (price999 === null && price916 === null) {
-    const fallback = await fetchFallbackPrice();
-    if (fallback.ok) {
-      price999 = fallback.price999;
-      price916 = fallback.price916;
-      method = "fallback-api";
-      sourcesUsed = [...scraped, fallback];
-    } else {
-      method = "unavailable";
-      sourcesUsed = [...scraped, fallback];
-    }
-  }
+  const { price999, price916 } = summarize(scraped);
+  const method: GoldPriceData["method"] =
+    price999 === null && price916 === null ? "unavailable" : "scrape";
 
   return {
     price999,
     price916,
     method,
     updatedAt: new Date().toISOString(),
-    sources: sourcesUsed.map((s) => ({ name: s.name, url: s.url, ok: s.ok })),
+    sources: scraped.map((s) => ({ name: s.name, url: s.url, ok: s.ok })),
   };
 }

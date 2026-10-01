@@ -17,6 +17,10 @@ export const SCRAPE_SOURCES: ScrapeSource[] = [
     name: "calculatormalaysia.com",
     url: "https://calculatormalaysia.com/gold-price-malaysia/",
   },
+  {
+    name: "buysilvermalaysia.com",
+    url: "https://www.buysilvermalaysia.com/live-price",
+  },
 ];
 
 export async function scrapeSource(
