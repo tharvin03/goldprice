@@ -21,6 +21,7 @@ export const SCRAPE_SOURCES: ScrapeSource[] = [
     name: "buysilvermalaysia.com",
     url: "https://www.buysilvermalaysia.com/live-price",
   },
+  { name: "wahchan.com.my", url: "https://wahchan.com.my/gold-price/" },
 ];
 
 export async function scrapeSource(
